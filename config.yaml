@@ -1,0 +1,39 @@
+arguments:
+  challenge_name: 'L3DAS22' #B_format
+  case_name: 'B_format'
+  task: 'train' #train val test
+  Train_Room: '12BB01'
+  theta_feature: True
+  LPS_feature: True
+  post_suffix: ''
+  DNN_suffix: ''
+  task_challenge: 'Task1'
+
+network:
+  DNN_type: 'MLP' # CNN MLP
+  n_hid: 256/2 #256/2
+
+neighbour:
+  frame_neigh: 5
+
+training:
+  n_sources: 1
+  n_epochs: 500 #60 170
+  batch_size: 6 #6 DNN and CNN, 2 RNN, 2 big CNN and DNN   # ORIGINALLY 6
+
+validation:
+  val_samples_check: 5
+  validation_batch_size: 6
+
+audio:
+  fs: 16000  
+  Wlength: 2048 #2048
+  window: 'hann'
+  hop_size: 513 #512
+  overlap: 0.75
+
+DOA:
+  min_frames: 70 #80 for DNN
+  n_features: 3
+  n_channels: 2
+  n_freq: 1025
