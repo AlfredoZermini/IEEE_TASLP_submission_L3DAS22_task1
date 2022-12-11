@@ -2,7 +2,7 @@
 
 # Generate data 
 
-Requires data praparation for the L3DAS22 challenge, which is not provided here.
+Requires data from the L3DAS22 Task 1 challenge (not provided here).
 
 (set config.yaml for 'train' and 'val')
 
