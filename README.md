@@ -1,6 +1,7 @@
 ### USAGE
 
-# Generate data (set config.yaml for 'train' and 'val')
+# Generate data 
+(set config.yaml for 'train' and 'val')
 
    python prepare_individual_data.py
 
