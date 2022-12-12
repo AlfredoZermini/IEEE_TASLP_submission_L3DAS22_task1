@@ -11,3 +11,8 @@ Requires data from the L3DAS22 Task 1 challenge (not provided here).
 # Train models
 
       python main.py
+      
+# Pre-trained model
+https://zenodo.org/record/7427355#.Y5eLyS1Q1QJ
+
+Use 'model_epoch248.hdf5'
