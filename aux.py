@@ -11,28 +11,28 @@ from tensorflow.python.keras.backend import set_session
 # predict masks
 def predict_mask(args, file_path, i):
 
-    with args.graph.as_default():
-        set_session(args.sess)
+    #with args.graph.as_default():
+    set_session(args.sess)
 
-        X, Y_gt = generator.create_batch(args, args.load_val_data_path, [file_path], args.frame_neigh)
-        
-        # get central frame
-        Y_gt = Y_gt[:,:,args.frame_neigh,:]
-        X_fr = X[:,:,args.frame_neigh,:]
+    X, Y_gt = generator.create_batch(args, args.load_val_data_path, [file_path], args.frame_neigh)
+    
+    # get central frame
+    Y_gt = Y_gt[:,:,args.frame_neigh,:]
+    #X_fr = X[:,:,args.frame_neigh,:]
 
-        #plot(args, os.getcwd(), X_fr[:,:,0].T, 0, mag=False)
-        #plot(args, os.getcwd(), X_fr[:,:,1].T, 1, mag=False)
-        #plot(args, os.getcwd(), Y_gt[:,:,0].T, 2, mag=False)
+    #plot(args, os.getcwd(), X_fr[:,:,0].T, 0, mag=False)
+    #plot(args, os.getcwd(), X_fr[:,:,1].T, 1, mag=False)
+    #plot(args, os.getcwd(), Y_gt[:,:,0].T, 2, mag=False)
 
-        # estimate mask        
-        Y_pred = args.model.predict(X)
+    # estimate mask        
+    Y_pred = args.model.predict(X)
 
-        # if prediction is list of masks, get the first one only for visualization purposes
-        if type(Y_pred) == list:
-            Y_pred = Y_pred[0]
+    # if prediction is list of masks, get the first one only for visualization purposes
+    if type(Y_pred) == list:
+        Y_pred = Y_pred[0]
 
-        # plot
-        plot_masks(args, args.fig_challenge_masks_path, file_path, Y_gt, Y_pred, i)
+    # plot
+    plot_masks(args, args.fig_challenge_masks_path, file_path, Y_gt, Y_pred, i)
 
     return Y_pred, Y_gt[:,:,0]
 

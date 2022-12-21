@@ -47,7 +47,7 @@ def train(args, config):
    args.n_frames = args.frame_neigh*2+1 
 
    # get files list  
-   args.train_files_list = [i for i in os.listdir(args.load_train_data_path) if not i == 'stats.h5']#[:12] #os.listdir(args.load_train_data_path)[:30]
+   args.train_files_list = [i for i in os.listdir(args.load_train_data_path) if not i == 'stats.h5'][:18] #os.listdir(args.load_train_data_path)[:30]
    args.val_files_list = os.listdir(args.load_val_data_path)[:300]
 
    # define input parameters
@@ -90,8 +90,8 @@ def train(args, config):
    tensorboard_callback = TensorBoard(log_dir=log_dir, histogram_freq=1)
    
    # define steps
-   args.steps_per_epoch = args.n_train_samples  // args.batch_size - 1 ### double check
-   args.validation_steps = len(args.val_files_list) // args.validation_batch_size - 1
+   args.steps_per_epoch = args.n_train_samples  // args.batch_size
+   args.validation_steps = len(args.val_files_list) // args.validation_batch_size
 
    # define generators
    train_generator = generator(args, args.load_train_data_path, args.train_files_list, args.batch_size, 'train')
@@ -102,8 +102,7 @@ def train(args, config):
    models_list = sorted(Path(args.models_path).iterdir(), key=os.path.getmtime)
    
    # remove any .log file from models_list
-   models_list = [i for i in models_list if '.log' not in os.path.basename(i)]
-   print(models_list)
+   models_list = [i for i in models_list if '.log' not in os.path.basename(i) and os.path.isdir(i) == False]
    
    # define log file
    csv_logger_path = os.path.join(args.models_path, 'training.log')
@@ -123,7 +122,6 @@ def train(args, config):
                epochs.append(int(line[0]))
 
       # get last epoch  
-      print(epochs)
       last_epoch = epochs[-1]
 
    else:
