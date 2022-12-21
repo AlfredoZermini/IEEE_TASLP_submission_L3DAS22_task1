@@ -4,6 +4,7 @@ These scripts were utilized to generate the results in the recent TASLP submissi
 To run the scripts, first set the variable in the `paths.env` file.
 
 The data generation requires the data from the L3DAS22 Task 1 challenge (not provided here).
+https://www.l3das.com/icassp2022/
 
 Also, set `config.yaml` for generating the 'train' and 'val' data. The run the following for each case:
 
