@@ -18,8 +18,13 @@ To train the models, select either 'MLP' or 'CNN' in the `config.yaml`, then run
 
 # Evaluate models
 
-cd into the L3DAS22 folder and run
+To evalaute the models, cd into the `L3DAS22` folder. This contains the same scripts provided by the L3DAS challenge, with some modifications to run on the models in this repository. First, set the variables in this the `paths.env` file in the `L3DAS22` folder.
+
+Then, run
       
+      python evaluate_tf.py 
+
+The script is configured to run the model available below (to modify it, adjust the saving epoch variable named `best_model_idx`)
       
 # Pre-trained model
 https://zenodo.org/record/7427355#.Y5eLyS1Q1QJ
