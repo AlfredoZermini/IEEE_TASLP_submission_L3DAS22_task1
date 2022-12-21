@@ -12,7 +12,7 @@ Also, set `config.yaml` for generating the 'train' and 'val' data. The run the f
 
 # Train models
 
-To train the models, select either 'MLP' or 'CNN' in the `config.yaml`, then run
+To train the models, select either `MLP` or `CNN` in the `config.yaml`, then run
 
       python main.py
       
