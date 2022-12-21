@@ -5,7 +5,7 @@ To run the scripts, first set the variable in the `paths.env` file.
 
 The data generation requires the data from the L3DAS22 Task 1 challenge (not provided here).
 
-Also, set `config.yaml` for generating the 'train', 'val' and 'test' data. The run the following for each case:
+Also, set `config.yaml` for generating the 'train' and 'val' data. The run the following for each case:
 
       python prepare_inputs_individual.py
 
