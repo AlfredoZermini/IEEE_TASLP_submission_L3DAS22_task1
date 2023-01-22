@@ -30,4 +30,4 @@ The script is configured to run the model available below (to modify it, adjust 
 # Pre-trained model
 https://zenodo.org/record/7427355#.Y5eLyS1Q1QJ
 
-Use 'model_epoch248.hdf5'
+Please select 'model_epoch248.hdf5'
